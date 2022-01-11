@@ -1,0 +1,33 @@
+{
+	"name": "dnj/image",
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"dnj\\Image\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"dnj\\Image\\Tests\\": "tests"
+		}
+	},
+	"require": {
+		"php": "^8.0",
+		"dnj/tmp-filesystem": "^1.0.0"
+	},
+	"require-dev": {
+		"phpstan/phpstan": "^0.12.85",
+		"phpunit/phpunit": "^9.5",
+		"friendsofphp/php-cs-fixer": "^3.1"
+	},
+	"scripts": {
+		"test:types": "vendor/bin/phpstan analyse",
+		"test:phpunit": "vendor/bin/phpunit",
+		"test:codestyle": "vendor/bin/php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no",
+		"test": [
+			"@test:types",
+			"@test:phpunit",
+			"@test:codestyle"
+		]
+	}
+}
